@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "customerId": 1,
+      "orderDate": "2023-08-01",
+      "totalAmount": 150.00,
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "orderDate": "2023-08-02",
+      "totalAmount": 250.00,
+      "status": "Shipped"
+    }
+  ]
+  
