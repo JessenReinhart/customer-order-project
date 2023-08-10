@@ -59,7 +59,3 @@ The app can be deployed to platforms like Vercel or Netlify. Make sure to config
 ## Acknowledgements
 
 This project was developed as part of a coding test. It demonstrates basic CRUD operations, authentication handling, and responsive design.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
