@@ -13,7 +13,6 @@ export function useFetchLoginData() {
             setLoading(true);
             setError('');
             const fetchedLoginData = await fetchLoginData();
-            console.log({ fetchedLoginData })
             if (username === fetchedLoginData.username && password === fetchedLoginData.password) {
                 setError('');
                 setLogin(username, password);
