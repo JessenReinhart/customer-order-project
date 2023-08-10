@@ -18,7 +18,7 @@ export async function fetchOrders(page: number = 1, itemPerPage: number = 10): P
     // Simulate a loading delay of 1 second
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const response = await axios.get('/src/data/dummy-orders.json');
+    const response = await axios.get('/dummy-orders.json');
     const count = (response.data as Order[]).length
     const allOrders = response.data as Order[];
 

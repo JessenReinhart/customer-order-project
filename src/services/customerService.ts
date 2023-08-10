@@ -18,7 +18,7 @@ export async function fetchCustomers(page: number = 1, itemPerPage: number = CUS
     // Simulate a loading delay of 1 second
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const response = await axios.get('/src/data/dummy-customers.json');
+    const response = await axios.get('/dummy-customers.json');
     const count = (response.data as Customer[]).length
     const allCustomers = response.data as Customer[];
 
