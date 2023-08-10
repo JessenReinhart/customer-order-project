@@ -10,9 +10,10 @@ interface Customer {
 interface CustomerDetailProps {
   customer: Customer;
   onCloseModal: () => void;
+  onEdit: () => void;
 }
 
-function CustomerDetail({ customer, onCloseModal }: CustomerDetailProps) {
+function CustomerDetail({ customer, onCloseModal, onEdit }: CustomerDetailProps) {
   return (
     <Modal show={true} onHide={onCloseModal}>
       <Modal.Header closeButton>
@@ -25,6 +26,9 @@ function CustomerDetail({ customer, onCloseModal }: CustomerDetailProps) {
         <p>Phone: {customer.phone}</p>
       </Modal.Body>
       <Modal.Footer>
+        <Button variant="primary" onClick={onEdit}>
+          Edit
+        </Button>
         <Button variant="secondary" onClick={onCloseModal}>
           Close
         </Button>

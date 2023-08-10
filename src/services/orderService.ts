@@ -1,19 +1,38 @@
 import axios from 'axios';
 
-interface Order {
+export interface Order {
   id: number;
-  customerId: number;
-  orderDate: string;
-  totalAmount: number;
+  customer_id: number;
+  order_date: string;
+  total_amount: number;
   status: string;
 }
 
-export async function fetchOrders(): Promise<Order[]> {
+type OrderResponseType = {
+  data: Order[]
+  count: number
+}
+
+export async function fetchOrders(page: number = 1, itemPerPage: number = 10): Promise<OrderResponseType> {
   try {
+    // Simulate a loading delay of 1 second
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const response = await axios.get('/src/data/dummy-orders.json');
-    return response.data;
+    const count = (response.data as Order[]).length
+    const allOrders = response.data as Order[];
+
+    // Calculate the start and end indexes for the current page
+    const startIndex = (page - 1) * itemPerPage;
+    const endIndex = startIndex + itemPerPage;
+
+    // Return the customers for the current page
+    return { data: allOrders.slice(startIndex, endIndex), count };
   } catch (error) {
     console.error('Error fetching orders:', error);
-    return [];
+    return {
+      data: [],
+      count: 0
+    };
   }
 }
